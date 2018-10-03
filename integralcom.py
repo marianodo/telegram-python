@@ -19,6 +19,8 @@ import re
 from dbSigesmen import Database
 import json
 import time
+import unicodedata
+
 
 MSG_OK = "Mensaje al código {0} envíado correctamente"
 BAD_CODE = "Códgo {0} no pertenece a nuestra base de datos"
@@ -51,7 +53,7 @@ def help(bot, update):
 
 def echo(bot, update):
     """Echo the user message."""
-    newMsg = update.message.text.strip()
+    newMsg = ''.join(c for c in unicodedata.normalize('NFD', update.message.text.strip()) if unicodedata.category(c) != 'Mn')
     match = re.match(REGULAR_EXP, newMsg)
     if match:
         code = match.group()
@@ -74,7 +76,7 @@ def error(bot, update, error):
 def main():
     """Start the bot."""
     # Create the EventHandler and pass it your bot's token.
-    updater = Updater("")
+    updater = Updater("412565617:AAFPbyHRCXbOZG7DjUTmNeeQyApnxabJ35k")
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
