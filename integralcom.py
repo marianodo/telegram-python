@@ -53,8 +53,8 @@ def help(bot, update):
 
 def echo(bot, update):
     """Echo the user message."""
-    newMsg = ''.join(c for c in unicodedata.normalize('NFD', update.message.text.strip()) if unicodedata.category(c) != 'Mn')
-    newMsg.encode('ascii', 'ignore').decode('ascii')
+    #newMsg = ''.join(c for c in unicodedata.normalize('NFD', update.message.text.strip()) if unicodedata.category(c) != 'Mn')
+    newMsg = update.message.text.strip().encode('ascii', 'ignore').decode('ascii')
     match = re.match(REGULAR_EXP, newMsg)
     if match:
         code = match.group()
