@@ -4,7 +4,7 @@ import json
 DATABASE_FILE = "dbConf.json"
 
 
-INSERT_MESSAGE = "INSERT INTO mea_mensajes_alarma(mea_codigo_cliente, mea_grupo, mea_fecha, mea_hora, mea_contenido, mea_codigo_accion, mea_estado, mea_verificado) VALUES ({0}, 1, CURRENT_DATE(), CURRENT_TIME(), '{1}', 0, 1, 0)"
+INSERT_MESSAGE = "INSERT INTO mea_mensajes_alarma(mea_codigo_cliente, mea_grupo, mea_fecha, mea_hora, mea_contenido, mea_codigo_accion, mea_estado, mea_verificado) VALUES ({0}, 1, CURRENT_DATE(), CURRENT_TIME(), '{1}', 0, 0, 0)"
 GET_CLIENT = "SELECT EXISTS(SELECT * FROM cli_clientes WHERE cli_codigo =  {0} )"
 GET_CLAIM_ID = "SELECT men_id from men_mensajes WHERE men_origen_id = {0}"
 

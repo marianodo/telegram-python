@@ -61,13 +61,12 @@ def echo(bot, update):
         message = re.sub(code, '', newMsg)
 
         if db.isCodeExists(code):
-            msgId = db.sendMessage(code, "{0}. {1}".format(message, MSG_FROM_TELEGRAM))
+	    msgId = db.sendMessage(code, "{0}. {1}".format(message, MSG_FROM_TELEGRAM))
             update.message.reply_text(MSG_OK.format(code))
         else:
             update.message.reply_text(BAD_CODE.format(code))
     else:
         update.message.reply_text(BAD_MSG)
-
 
 def error(bot, update, error):
     """Log Errors caused by Updates."""
@@ -77,7 +76,7 @@ def error(bot, update, error):
 def main():
     """Start the bot."""
     # Create the EventHandler and pass it your bot's token.
-    updater = Updater("412565617:AAFPbyHRCXbOZG7DjUTmNeeQyApnxabJ35k")
+    updater = Updater("1001888963:AAGzO49bi_wsdyEG5yGvecuoGl3MGMk2dzw")
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
